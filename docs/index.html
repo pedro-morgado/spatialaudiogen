@@ -1,7 +1,711 @@
-<p>(In construction) </p>
-<p>Webpage accompanying our NIPS 2018 paper </p>
-<p></p>
-<p>Self-Supervised Generation of Spatial Audio for 360 Video. </p>
-<p>Pedro Morgado, Nuno Vasconcelos, Timothy Langlois and Oliver Wang. </p>
-<p></p>
-<p>Code, data and trained models will be made available here soon!!! </p>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" content="IE=edge, chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+    <!-- Custom fonts for this template -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link href="vendor/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="vendor/academicons/css/academicons.min.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <!-- <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="creative.css" rel="stylesheet">
+
+    <style type="text/css">
+      .no-gutters>.col {
+        padding: 10px !important;
+      }
+    </style>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $(".exampleVideo").height($(".exampleVideo").width() * 2/3)
+
+      })
+      
+    </script>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Spatial Audio Generation</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#dataset">Dataset</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#models">Models</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#examples">Predictions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">Authors</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Header                           |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-10 mx-auto mt-5 pt-5">
+            <h1 class="text-uppercase">
+              <strong>Self-Supervised Generation of Spatial Audio for 360° Video</strong>
+            </h1>
+            <hr class="my-4 light">
+          </div>
+
+          <div class="col-3">
+            <h4 class="text-faded my-3">
+              <a href="http://www.svcl.ucsd.edu/~morgado" class="text-faded" target="_blank">Pedro Morgado</a> 
+            </h4>
+          </div>
+          <div class="col-3">
+            <h4 class="text-faded my-3">
+              <a href="http://www.svcl.ucsd.edu/~nuno" class="text-faded" target="_blank">Nuno Vasconcelos</a>
+            </h4>
+          </div>
+          <div class="col-3">
+            <h4 class="text-faded my-3">
+              <a href="http://langlo.is" class="text-faded" target="_blank">Timothy Langlois</a> 
+            </h4>
+          </div>
+          <div class="col-3">
+            <h4 class="text-faded my-3">
+              <a href="http://www.oliverwang.info" class="text-faded" target="_blank">Oliver Wang</a>
+            </h4>
+          </div>
+        
+          <div class="col-12 my-3 text-center">
+            <hr class="my-3">
+            <iframe src="http://www.youtube.com/embed/SXFUr2GkxS8?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/"
+              width="560" height="315" type="text/html" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Overview                         |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+    <section>
+      <div class="container pt-5" id="overview">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="section-heading">Overview</h1>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-10 mx-auto">
+            <p class="text-muted text-justify mb-0">
+              We introduce an approach to convert mono audio recorded by a 360° video camera into spatial audio, a representation of the distribution of sound over the full viewing sphere. Spatial audio is an important component of immersive 360° video viewing, but spatial audio microphones are still rare in current 360° video production. Our system consists of end-to-end trainable neural networks that separate individual sound sources and localize them on the viewing sphere, conditioned on multi-modal analysis of audio and 360° video frames. We introduce several datasets, including one filmed ourselves, and one collected in-the-wild from YouTube, consisting of 360° videos uploaded with spatial audio. During training, ground-truth spatial audio serves as self-supervision and a mixed down mono track forms the input to our network. Using our approach, we show that it is possible to infer the spatial location of sound sources based only on 360° video and a mono audio track.
+            </p>
+          </div>
+
+          <div class="col-lg-10 col-md-10 col-sm-12 mx-auto text-center">
+            <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/spatialaudiogen.pdf" target="_blank">
+              <img src="./img/paper.jpg" alt="paper" class="img-thumbnail mb-3 mt-5">
+            </a>
+            <h3 class="mb-3">Paper</h3>
+            <p class="text-muted mb-0">To appear in the 32nd Conference on Neural Information Processing Systems (NIPS'18).</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <a href="https://arxiv.org/abs/1809.02587" target="_blank">
+                <i class="ai ai-4x ai ai-arxiv text-primary mb-3 "></i>
+              </a>
+              <h3 class="mb-3">Arxiv</h3>
+              <p class="text-muted mb-0">Read the preprint.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <a href="https://github.com/pedro-morgado/spatialaudiogen" target="_blank">
+                <i class="fab fa-4x fa-github text-primary mb-3 "></i>
+              </a>
+              <h3 class="mb-3">Repository</h3>
+              <!-- <p class="text-muted mb-0">Check out the code.</p> -->
+              <p class="mt-0 mb-0" style="color: #d73232">Coming soon!</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fab fa-4x fa-slideshare text-primary mb-3 "></i>
+              <h3 class="mb-3">Poster</h3>
+              <!-- <p class="text-muted mb-0">Coming soon.</p> -->
+              <p class="mb-0" style="color: #d73232">Coming soon!</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/spatialaudiogen.bib" target="_blank"> <i class="fa fa-4x fa-bars text-primary mb-3 "></i> </a>
+              <h3 class="mb-3">Bibtex</h3>
+              <p class="text-muted mb-0">Cite the paper.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Dataset                          |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+    <section>
+      <div class="container pt-5" id="dataset">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="section-heading">Dataset</h1>
+            <hr class="my-4">
+          </div>
+          <div class="col-12 mx-auto text-center">
+            <p class="text-muted mb-3">
+              First 360° video dataset with spatial audio (1st-order ambisonics).
+            </p>
+          </div>
+
+          <div class="col-6 mx-auto text-center my-3">
+            <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/REC-Street.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/REC-Street-2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/REC-Street-3.jpg" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <h4 class="mt-2">REC-Street</h4>
+          </div>
+
+
+          <div class="col-6 mx-auto text-center my-3">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Clean.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Clean-2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Clean-3.jpg" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <h4 class="mt-2">YT-Clean</h4>
+          </div>
+
+
+          <div class="col-6 mx-auto text-center my-3">
+            <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Music.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Music-2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-Music-3.jpg" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <h4 class="mt-2">YT-Music</h4>
+          </div>
+
+
+          <div class="col-6 mx-auto text-center my-3">
+            <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators4" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators4" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators4" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-All.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-All-2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-thumbnail" style="opacity:1.0" src="./img/dataset/YT-All-3.jpg" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators4" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <h4 class="mt-2">YT-All</h4>
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-film mb-3 "></i>
+              <h4 class="mb-3">1146 Videos</h4>
+              <p class="text-muted mb-0">Scrapped from youtube or recorded by ourselves.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="far fa-4x fa-clock mb-3 "></i>
+              <h4 class="mb-3">113 Hours</h4>
+              <p class="text-muted mb-0">More than 3M training samples (0.1s each).</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-database mb-3 "></i>
+              <h4 class="mb-3">4 Partitions</h4>
+              <p class="text-muted mb-0">Organized under different levels of difficulty.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <!-- <a href="https://github.com/pedro-morgado/spatialaudiogen" target="_blank">
+              </a> -->
+              <i class="fa fa-4x fa-download mb-3 "></i>
+              <!-- <a href="https://github.com/pedro-morgado/spatialaudiogen" target="_blank">
+              </a> -->
+              <h4 class="mb-3">Download</h4>
+              <!-- <p class="text-muted mb-0">Youtube links available for download.</p> -->
+              <p class="mt-2 mb-0" style="color: #d73232">Coming soon!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Models                           |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+    <section>
+      <div class="container pt-5" id="models">
+        <div class="row">
+          <div class="col-10 mx-auto text-center">
+            <h1 class="section-heading">Models</h1>
+            <hr class="my-4">
+            <img src="./img/network.jpg" alt="paper" class="img-thumbnail" style="opacity: 1.0">
+            <p class="text-muted my-3">
+              <strong>Architecture:</strong>
+              Schematic representation of our network.
+            </p>
+
+            <div class="container">
+              <div class="row my-5">
+                <div class="col-12 mx-auto text-left">
+                  <h2>Code</h2>
+                  <p class="text-muted mt-3 mb-2">
+                    Training, evaluation and deployment code available on GitHub.
+                  </p>
+                  <!-- <a href="https://github.com/pedro-morgado/spatialaudiogen" target="_blank">
+                    <h4 class="mt-0"><i class="fab fa-github"></i> GitHub</h4>
+                  </a> -->
+                  <p class="mt-2 mb-0" style="color: #d73232">Coming soon!</p>
+                </div>
+              </div>
+
+              <div class="row my-5">
+                <div class="col-12 mx-auto text-left">
+                  <h2>Trained models</h2>
+                  <p class="text-muted mt-3 mb-2">
+                    Get model checkpoints trained on each dataset.
+                  </p>
+                  <p class="mt-2 mb-0" style="color: #d73232">Coming soon!</p>
+                  <!-- <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6 col-sm-12 mx-auto text-left pl-0">
+                        <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/REC-Street.tar.gz" target="_blank">
+                          <h4><i class="fas fa-cloud-download-alt"></i> REC-Street</h4>
+                        </a>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6 col-sm-12 mx-auto text-left pl-0">
+                        <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-Clean.tar.gz " target="_blank">
+                          <h4><i class="fas fa-cloud-download-alt"></i> YT-Clean</h4>
+                        </a>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6 col-sm-12 mx-auto text-left pl-0">
+                        <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-Music.tar.gz " target="_blank">
+                          <h4><i class="fas fa-cloud-download-alt"></i> YT-Music</h4>
+                        </a>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6 col-sm-12 mx-auto text-left pl-0">
+                        <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-All.tar.gz " target="_blank">
+                          <h4><i class="fas fa-cloud-download-alt"></i> YT-All</h4>
+                        </a>
+                      </div>
+                    </div>
+                  </div> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Predictions                      |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+    <section>
+      <div class="container pt-5" id="examples">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="section-heading">Predictions</h1>
+            <hr class="my-4">
+          </div>
+          <div class="col-10 mx-auto text-left px-0">
+            <p class="text-muted mb-3">
+              <p>Click the videos for watching our model predictions. </p>
+              <p>NOTE: First video is the input to our model. The network output can be seen either with a colormap overlay that localizes the most salient sounds (second video) or using headphones in the 360 video player (third column).</p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 mx-auto text-center">
+          <div class="container-fluid">
+            <div class="row popup-gallery">
+              <div class="col-12 px-1 text-left">
+                <h4>Example #1</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/866j-XIZmjg?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/TwE_Qr_ZSoo?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/LH_o8GHVS-E?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+
+              <div class="col-12 mx-0 text-left">
+                <h4>Example #2</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/kdrAd1reVd0?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/36hKAcKcajQ?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/3HAmjUOScgY?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+
+              <div class="col-12 mx-0 text-left">
+                <h4>Example #3</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/MFVmxoXgeNQ?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/AkZb9TXpCsE?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/Bh36H9Rd-_I?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+
+              <div class="col-12 mx-0 text-left">
+                <h4>Example #4</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/b2qcHzRWb-k?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/fQADmKnPqm0?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/5oyqT8xfjg0?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+
+
+              <div class="col-12 mx-0 text-left">
+                <h4>Example #5</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/22kR2g5KWYA?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/ziTijjcqQbU?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/F_sDfvzr_ZU?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+
+
+              <div class="col-12 mx-0 text-left">
+                <h4>Example #6</h4>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/YLxrongniuw?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Source</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/o1hT1pV1UZw"width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Colormap)</h5></center>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe src="http://www.youtube.com/embed/oaxBb2yikSU?enablejsapi=1&origin=http://www.svcl.ucsd.edu/~morgado/docs/" width="100%" type="text/html" allowfullscreen></iframe>
+                  <center><h5>Prediction (Ambisonics)</h5></center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!--------------------------------------------------------|
+    |=========================================================|
+    |                                                         |
+    |                        Authors                           |
+    |                                                         |
+    |=========================================================|
+    |--------------------------------------------------------->
+    <section>
+      <div class="container pt-5 pb-5 mb-5"  id="team">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h1 class="section-heading">Authors</h1>
+            <hr class="my-4">
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-lg-3 col-md-6 col-sm-12 ml-auto text-center">
+            <!-- <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>  -->
+            <div><a href="http://www.svcl.ucsd.edu/~morgado" target="_blank">
+              <img src="./img/authors/pedro.jpg" alt="pedro" class="img-thumbnail">
+            </a></div>
+            <br>
+            <div class="text-muted text-center">
+              <a href="http://www.svcl.ucsd.edu/~morgado" target="_blank">
+                <h3 class="mb-3">Pedro Morgado</h3>
+              </a> 
+              <h5>UC San Diego</h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 ml-auto text-center">
+            <!-- <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>  -->
+            <div><a href="http://www.svcl.ucsd.edu/~nuno" target="_blank">
+              <img src="./img/authors/nuno.jpg" alt="pedro" class="img-thumbnail">
+            </a></div>
+            <br>
+            <div class="text-muted text-center">
+              <a href="http://www.svcl.ucsd.edu/~nuno" target="_blank">
+                <h3 class="mb-3">Nuno Vasconcelos</h3>
+              </a>
+              <h5>UC San Diego</h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 ml-auto text-center">
+            <!-- <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>  -->
+            <div><a href="http://langlo.is" target="_blank">
+              <img src="./img/authors/tim.jpg" alt="pedro" class="img-thumbnail">
+            </a></div><br>
+            <div class="text-muted text-center">
+              <a href="http://langlo.is" target="_blank">
+                <h3 class="mb-3">Timothy Langlois</h3>
+              </a>
+              <h5>Adobe Research</h5>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-3 col-md-6 col-sm-12 ml-auto text-center">
+            <!-- <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>  -->
+            <div><a href="http://www.oliverwang.info" target="_blank">
+              <img src="./img/authors/oliver.jpg" alt="pedro" class="img-thumbnail">
+            </a></div><br>
+            <div class="text-muted text-center">
+              <a href="http://www.oliverwang.info" target="_blank">
+                <h3 class="mb-3">Oliver Wang</h3>
+              </a>
+              <h5>Adobe Research</h5>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-primary text-white text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- <div class="footer-copyright"> -->
+            <h5 class="my-4">Copyright © SVCL, UCSD 
+            <script language="javascript" type="text/javascript">
+              var today = new Date()
+              var year = today.getFullYear()
+              document.write(year)
+              </script>
+            </h5>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+  </body>
+
+</html>
