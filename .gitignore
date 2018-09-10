@@ -5,6 +5,7 @@ __pycache__/
 
 data
 models
+sftp-config.json
 
 
 # C extensions
