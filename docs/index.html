@@ -37,28 +37,6 @@
 
       })
     </script>
-
-    <script type="application/javascript">
-
-    function resizeIFrameToFitContent( iFrame ) {
-
-        // iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
-        iFrame.height = iFrame.contentWindow.document.body.scrollWidth * 1080/1920;
-    }
-
-    window.addEventListener('DOMContentLoaded', function(e) {
-
-        var iFrame = document.getElementById( 'highlights' );
-        resizeIFrameToFitContent( iFrame );
-
-        // or, to resize all iframes:
-        var iframes = document.querySelectorAll("iframe");
-        for( var i = 0; i < iframes.length; i++) {
-            resizeIFrameToFitContent( iframes[i] );
-        }
-    } );
-
-    </script>
   </head>
 
   <body id="page-top">
@@ -128,10 +106,13 @@
           </div>
         
           <div class="col-12 mt-5 mb-0 text-center">
-            <div style="width: 75%" class="mx-auto">
-              <iframe src="https://www.youtube.com/embed/SXFUr2GkxS8"
-              width="100%" type="text/html" id="highlights", allowfullscreen></iframe>
+            <div style="width: 75%;height: 0;padding-bottom: 42%;position: relative;margin-left: auto;margin-right: auto;">
+                <iframe src="https://www.youtube.com/embed/SXFUr2GkxS8" type="text/html" allowfullscreen style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
             </div>
+            <!-- <div style="width: 75%;" class="aspect-ratio">
+                <iframe src="https://www.youtube.com/embed/SXFUr2GkxS8"
+                type="text/html", allowfullscreen></iframe>
+            </div> -->
           </div>
         </div>
       </div>
