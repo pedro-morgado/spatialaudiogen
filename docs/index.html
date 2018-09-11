@@ -36,7 +36,28 @@
           $(".exampleVideo").height($(".exampleVideo").width() * 2/3)
 
       })
-      
+    </script>
+
+    <script type="application/javascript">
+
+    function resizeIFrameToFitContent( iFrame ) {
+
+        // iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+        iFrame.height = iFrame.contentWindow.document.body.scrollWidth * 1080/1920;
+    }
+
+    window.addEventListener('DOMContentLoaded', function(e) {
+
+        var iFrame = document.getElementById( 'highlights' );
+        resizeIFrameToFitContent( iFrame );
+
+        // or, to resize all iframes:
+        var iframes = document.querySelectorAll("iframe");
+        for( var i = 0; i < iframes.length; i++) {
+            resizeIFrameToFitContent( iframes[i] );
+        }
+    } );
+
     </script>
   </head>
 
@@ -74,13 +95,6 @@
 
 
 
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Header                           |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
 
     <header class="masthead text-center text-white d-flex">
       <div class="container align-items-center my-auto">
@@ -113,25 +127,17 @@
             </h4>
           </div>
         
-          <div class="col-12 my-3 text-center">
-            <hr class="my-3">
-            <iframe src="https://www.youtube.com/embed/SXFUr2GkxS8"
-              width="560" height="315" type="text/html" allowfullscreen></iframe>
+          <div class="col-12 mt-5 mb-0 text-center">
+            <div style="width: 75%" class="mx-auto">
+              <iframe src="https://www.youtube.com/embed/SXFUr2GkxS8"
+              width="100%" type="text/html" id="highlights", allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
 
-
-
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Overview                         |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
     <section>
       <div class="container pt-5" id="overview">
         <div class="row">
@@ -202,13 +208,6 @@
 
 
 
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Dataset                          |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
     <section>
       <div class="container pt-5" id="dataset">
         <div class="row">
@@ -388,13 +387,6 @@
     </section>
 
 
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Models                           |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
     <section>
       <div class="container pt-5" id="models">
         <div class="row">
@@ -478,13 +470,6 @@
 
 
 
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Predictions                      |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
     <section>
       <div class="container pt-5" id="examples">
         <div class="row">
@@ -609,13 +594,6 @@
 
 
 
-    <!--------------------------------------------------------|
-    |=========================================================|
-    |                                                         |
-    |                        Authors                           |
-    |                                                         |
-    |=========================================================|
-    |--------------------------------------------------------->
     <section>
       <div class="container pt-5 pb-5 mb-5"  id="team">
         <div class="row">
