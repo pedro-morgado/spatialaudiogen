@@ -30,28 +30,34 @@ The composition of each dataset can be seen in `meta/subsets/{DB}.lst`. Three tr
 
 #### Download the data 
 
-`python scrapping/download.py`
+`python scrapping/download.py meta/spatialaudiogen_db.lst`
 
-This script uses `youtube-dl` to download from Youtube pre-selected audio and video formats for which the encoding scheme has been verified. Unfortunately, a small number of videos have been removed by the creators (36 out of 1189 at the time of writing).
+This script uses `youtube-dl` to download pre-selected audio and video formats for which the encoding scheme has been verified. 
 Videos are downloaded into the `data/orig` directory.
+Unfortunately, a small number of videos have been removed by the creators (36 out of 1189 at the time of writing).
 
 #### Preprocess videos
 
-`python scrapping/preprocess.py`
+`python scrapping/preprocess.py meta/spatialaudiogen_db.lst`
 
-This script pre-processes videos downloaded using `scrapping/download.py` script. 
+This script pre-processes previously downloaded videos.
 Video frames are resized to `(224x448)` and remapped into equirectangular projection at `10` fps. Audio channels are remapped into ACN format (`WYZX`) and resampled at `48000` kHz.
-Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`).
+Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`). 
+Training, evaluation and deployment code use the data in `data/frames`.
 
 ## Pretrained models
-Run `./download_pretrained.sh` to download models pretrained in each dataset. Model weight will be stored under `models/`
+Models pretrained in each dataset can be downloaded from OneDrive:
 
-(Required to run the demo.)
+| [REC-Street](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EY-SUbhyYdNFuwHXQkX3coYBrgEtVOSF4KhYN_21LfvpjA) | 
+[YT-Clean](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/ES5xETC9aXFApPhynevZL1kBG8ejcMrp_DR4kHHmYNSHKQ) | 
+[YT-Music](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/Earcl8uge_VAnr6aac6PhgABe5vs8rMoZNmpniBkH2a5HQ) | 
+[YT-All](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EdKpT8fNP7FBu__0mp-HkVwB12_Nlnducizm1xbZPJD1eQ) |
+
+After downloading the `.tar.gz` files, extract them into `models/` directory.
 
 ##  Getting started
-Type `python deploy.py -h` for more info.
-
 Several demo videos are provided under `data/demo`. To run a pretrained model over one of these videos, use one of the following options.
+
 
 **[Heatmap Visualization]** 
 `python deploy.py models/YT-Clean/Full_S1 data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --overlay_map`.
@@ -60,6 +66,8 @@ Several demo videos are provided under `data/demo`. To run a pretrained model ov
 `python deploy.py models/YT-Clean/Full_S1 data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --VR`.
 
 When the ``--VR`` option is used, the output must be visualized using an 360 video player and headphones. See below for more information (section `Visualizing predictions`).
+
+`python deploy.py -h` for more info.
 
 **NOTE:** The `deploy.py` script requires a version of the video preprocessed in high-resolution. For the demo examples, these files are already provided. For other videos, this can be accopmlished by setting the `prep_hr_video` to `True` in `scrapping/preprocess.py` and running it again.
 
