@@ -19,12 +19,12 @@ def parse_arguments():
 
     # Inputs
     parser.add_argument('input_folder', default='', help='Folder with input sample.')
-    parser.add_argument('hr_video', default='', help='High resolution video.')
+    parser.add_argument('video', default='', help='High resolution video.')
     parser.add_argument('--deploy_start', default=0., type=float)
     parser.add_argument('--deploy_duration', default=10., type=float)
 
     # Outputs
-    parser.add_argument('--out_base_fn', default='output', help='Basename for output files.')
+    parser.add_argument('--output_fn', default='output', help='Basename for output files.')
     parser.add_argument('--save_ambix', action='store_true', help='Output ambix video file.')
     parser.add_argument('--save_video', action='store_true', help='Output video file.')
     parser.add_argument('--overlay_map', action='store_true', help='Overlay spherical map.')
@@ -184,16 +184,15 @@ def main(args):
 
     if args.save_ambix:
         print('Saving ambisonics wav...')
-        cmd = 'ffmpeg -y -i {} -strict -2 {}'.format(tmp_ambix_fn, args.out_base_fn+'.m4a')
+        cmd = 'ffmpeg -y -i {} -strict -2 {}'.format(tmp_ambix_fn, args.output_fn)
         os.system(cmd)
 
     if args.save_video:
         print('Saving video...')
-        cmd = 'ffmpeg -y -ss {} -i {} -t {} {}'.format(args.deploy_start, args.hr_video, args.deploy_duration, tmp_video_fn)
+        cmd = 'ffmpeg -y -ss {} -i {} -t {} {}'.format(args.deploy_start, args.video, args.deploy_duration, tmp_video_fn)
         os.system(cmd)
 
-        video_fn = args.out_base_fn + '.mp4'
-        myutils.gen_360video(tmp_ambix_fn, tmp_video_fn, video_fn, overlay_map=args.overlay_map, inject_meta=args.VR, binauralize=not args.VR)
+        myutils.gen_360video(tmp_ambix_fn, tmp_video_fn, args.output_fn, overlay_map=args.overlay_map, inject_meta=args.VR, binauralize=not args.VR)
 
     os.remove(tmp_video_fn)
     os.remove(tmp_ambix_fn)

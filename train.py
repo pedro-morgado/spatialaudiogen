@@ -34,7 +34,7 @@ def parse_arguments():
     parser.add_argument('--n_iters',      type=int,   default=1000000, help="Number of iterations")
     parser.add_argument('--lr',           type=float, default=1e-4, help="Base learning rate")
     parser.add_argument('--lr_decay',     type=float, default=0.5, help="Learning rate decay")
-    parser.add_argument('--lr_iters',     type=int, default=250000, help="Iterations between decays.")
+    parser.add_argument('--lr_iters',     type=int,   default=250000, help="Iterations between decays.")
     parser.add_argument('--batch_size',   type=int,   default=32, help="Batch size")
     parser.add_argument('--resume', action='store_true', help="Restore and resume training.")
 
