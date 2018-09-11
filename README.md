@@ -45,8 +45,8 @@ Video frames are resized to `(224x448)` and remapped into equirectangular projec
 Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`). 
 Training, evaluation and deployment code use the data in `data/frames`.
 
-## Pretrained models
-Models pretrained in each dataset can be downloaded from OneDrive:
+## Pre-trained models
+Models pre-trained in each dataset can be downloaded from OneDrive:
 
 | [REC-Street](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EY-SUbhyYdNFuwHXQkX3coYBrgEtVOSF4KhYN_21LfvpjA) | 
 [YT-Clean](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/ES5xETC9aXFApPhynevZL1kBG8ejcMrp_DR4kHHmYNSHKQ) | 
@@ -56,18 +56,17 @@ Models pretrained in each dataset can be downloaded from OneDrive:
 After downloading the `.tar.gz` files, extract them into `models/` directory.
 
 ##  Getting started
-Several demo videos are provided under `data/demo`. To run a pretrained model over one of these videos, use one of the following options.
+Several demo videos are provided under `data/demo`. 
 
+To run a pre-trained model over one of these videos, use one of the following options.
 
 **[Heatmap Visualization]** 
-`python deploy.py models/YT-Clean/Full_S1 data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --overlay_map`.
+`python deploy.py {MODEL_DIR} data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --overlay_map`.
 
 **[Ambisonics]** 
-`python deploy.py models/YT-Clean/Full_S1 data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --VR`.
+`python deploy.py {MODEL_DIR} data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --VR`.
 
-When the ``--VR`` option is used, the output must be visualized using an 360 video player and headphones. See below for more information (section `Visualizing predictions`).
-
-`python deploy.py -h` for more info.
+When the ``--VR`` option is used, the output must be watched with headphones using an 360 video player. See below for more information (section `Visualizing predictions`).
 
 **NOTE:** The `deploy.py` script requires a version of the video preprocessed in high-resolution. For the demo examples, these files are already provided. For other videos, this can be accopmlished by setting the `prep_hr_video` to `True` in `scrapping/preprocess.py` and running it again.
 
