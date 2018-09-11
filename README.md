@@ -1,15 +1,15 @@
 <div class="row">
   <div class="column">
-    <img src="https://pedro-morgado.github.io/spatialaudiogen/img/dataset/REC-Street.jpg" style="width:100%">
+    <img src="docs/img/dataset/REC-Street.jpg" style="width:100%">
   </div>
   <div class="column">
-    <img src="https://pedro-morgado.github.io/spatialaudiogen/img/dataset/YT-Clean.jpg" style="width:100%">
+    <img src="docs/img/dataset/YT-Clean.jpg" style="width:100%">
   </div>
   <div class="column">
-    <img src="https://pedro-morgado.github.io/spatialaudiogen/img/dataset/YT-Music.jpg" style="width:100%">
+    <img src="docs/img/dataset/YT-Music.jpg" style="width:100%">
   </div>
   <div class="column">
-    <img src="https://pedro-morgado.github.io/spatialaudiogen/img/dataset/YT-All.jpg" style="width:100%">
+    <img src="docs/img/dataset/YT-All.jpg" style="width:100%">
   </div>
 </div>
 
