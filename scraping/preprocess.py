@@ -1,6 +1,5 @@
-import os, sys, tempfile, glob
+import os, sys, tempfile, glob, argparse
 sys.path.insert(0, '.')
-from optparse import OptionParser
 import shutil
 import numpy as np
 from skimage import io as sio
@@ -100,7 +99,7 @@ def prepare_video(inp_fn, stereopsis, projection, out_fn, out_shape, out_rate, o
         os.remove(tmp_fn.name)
 
 
-def extract_frames(audio_fn, video_fn, frames_dir, yid):
+def extract_frames(audio_fn, video_fn, frames_dir, yid, overwrite):
     print('\n'+'='*30+' '+yid+' '+'='*30)
 
     # Prepare directory tree
@@ -108,14 +107,20 @@ def extract_frames(audio_fn, video_fn, frames_dir, yid):
         os.makedirs(frames_dir)
 
     audio_dir = os.path.join(frames_dir, 'ambix')
-    if os.path.exists(audio_dir):
-        shutil.rmtree(audio_dir)
-    os.makedirs(audio_dir)
+    if os.path.isdir(audio_dir):
+        if overwrite:
+            shutil.rmtree(audio_dir)
+            os.makedirs(audio_dir)
+    else:
+        os.makedirs(audio_dir)
 
     video_dir = os.path.join(frames_dir, 'video')
-    if os.path.exists(video_dir):
-        shutil.rmtree(video_dir)
-    os.makedirs(video_dir)
+    if os.path.isdir(video_dir):
+        if overwrite:
+            shutil.rmtree(video_dir)
+            os.makedirs(video_dir)
+    else:
+        os.makedirs(video_dir)
 
     # Open readers
     audio_reader = AudioReader(audio_fn)
@@ -194,23 +199,28 @@ def compute_flow(video_dir, flow_dir, gpu=0):
  
 
 if __name__ == '__main__':
-    orig_dir = 'data/orig'
-    prep_dir = 'data/preproc'
-    prep_hr_dir = 'data/preproc-hr'
-    frames_dir = 'data/frames'
-    num_workers = 1
-    overwrite = False
-    prep_hr_video = False
-    if not os.path.isdir(prep_dir):
-        os.makedirs(prep_dir)
-    if prep_hr_video and not os.path.isdir(prep_hr_dir):
-        os.makedirs(prep_hr_dir)
-    if not os.path.isdir(frames_dir):
-        os.makedirs(frames_dir)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('db_list', default='meta/spatialaudiogen_db.lst', help='File containing list of youtube ids.')
+    parser.add_argument('--orig_dir', default='data/orig', help='Folder containing downloaded videos.')
+    parser.add_argument('--output_prep_dir', default='data/preproc', help='Output folder for preprocessed videos.')
+    parser.add_argument('--output_frames_dir', default='data/frames', help='Output folder for preprocessed video frames and audio chunks.')
+    parser.add_argument('--output_prep_hr_dir', default='data/preproc-hr', help='Output folder for preprocessed high-resolution videos.')
+    parser.add_argument('--num_workers', default=4, type=int, help='Number of parallel workers.')
+    parser.add_argument('--prep_hr_video', action='store_true')
+    parser.add_argument('--overwrite', action='store_true')
+    args = parser.parse_args(sys.argv[1:])
 
-    assert len(sys.argv) == 2
+    if not os.path.isdir(args.output_prep_dir):
+        os.makedirs(args.output_prep_dir)
+    if args.prep_hr_video and not os.path.isdir(args.output_prep_hr_dir):
+        os.makedirs(args.output_prep_hr_dir)
+    if not os.path.isdir(args.output_frames_dir):
+        os.makedirs(args.output_frames_dir)
+    if not os.path.isdir('scraping/pgms'):
+        os.makedirs('scraping/pgms')
+
     to_process = open(sys.argv[1]).read().splitlines()
-    available = [os.path.split(fn)[-1].split('.audio')[0] for fn in glob.glob('{}/*.audio.*'.format(orig_dir))]
+    available = [os.path.split(fn)[-1].split('.audio')[0] for fn in glob.glob('{}/*.audio.*'.format(args.orig_dir))]
     q = mp.Queue()
     for yid in to_process:
         if yid in available:
@@ -221,25 +231,25 @@ if __name__ == '__main__':
             yid = q.get()
             print('='*10, int(q.qsize()), 'remaining', yid, '='*10)
 
-            orig_audio_fn = glob.glob('{}/{}.audio.*'.format(orig_dir, yid))[0]
-            orig_video_fn = glob.glob('{}/{}.video.*'.format(orig_dir, yid))[0]
-            prep_audio_fn = os.path.join(prep_dir, '{}-ambix.m4a'.format(yid))
-            prep_video_fn = os.path.join(prep_dir, '{}-video.mp4'.format(yid))
-            frames = os.path.join(frames_dir, yid)
+            orig_audio_fn = glob.glob('{}/{}.audio.*'.format(args.orig_dir, yid))[0]
+            orig_video_fn = glob.glob('{}/{}.video.*'.format(args.orig_dir, yid))[0]
+            prep_audio_fn = os.path.join(args.output_prep_dir, '{}-ambix.m4a'.format(yid))
+            prep_video_fn = os.path.join(args.output_prep_dir, '{}-video.mp4'.format(yid))
+            frames = os.path.join(args.output_frames_dir, yid)
             stereopsis = [l.split()[2] for l in open('scraping/download_formats.txt') if l.split()[0]==yid][0]
             projection = [l.split()[3] for l in open('scraping/download_formats.txt') if l.split()[0]==yid][0]
 
-            prepare_ambisonics(orig_audio_fn, prep_audio_fn, overwrite)
-            prepare_video(orig_video_fn, stereopsis,  projection, prep_video_fn, (224, 448), 10, overwrite)
-            if prep_hr_video:
-                prep_hr_video_fn = os.path.join(prep_hr_dir, '{}-video.mp4'.format(yid))
-                prepare_video(orig_video_fn, stereopsis,  projection, prep_hr_video_fn, (1080, 1920), 10, overwrite)
-            extract_frames(prep_audio_fn, prep_video_fn, frames, yid)
+            prepare_ambisonics(orig_audio_fn, prep_audio_fn, args.overwrite)
+            prepare_video(orig_video_fn, stereopsis,  projection, prep_video_fn, (224, 448), 10, args.overwrite)
+            if args.prep_hr_video:
+                prep_hr_video_fn = os.path.join(args.output_prep_hr_dir, '{}-video.mp4'.format(yid))
+                prepare_video(orig_video_fn, stereopsis,  projection, prep_hr_video_fn, (1080, 1920), 30, args.overwrite)
+            extract_frames(prep_audio_fn, prep_video_fn, frames, yid, args.overwrite)
             compute_audio_pow(os.path.join(frames, 'ambix'), os.path.join(frames, 'audio_pow.lst'))
             # compute_flow(os.path.join(frames, yid, 'video'), os.path.join(frames, yid, 'flow'), gpu)
 
     proc = []
-    for _ in range(num_workers):
+    for _ in range(args.num_workers):
         p = mp.Process(target=worker, args=(q, ))
         p.daemon = True
         p.start()
