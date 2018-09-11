@@ -30,7 +30,9 @@ The composition of each dataset can be seen in `meta/subsets/{DB}.lst`. Three tr
 
 #### Download the data 
 
-`python scrapping/download.py meta/spatialaudiogen_db.lst`
+Scripts for downloading and pre-processing the data will be released soon.
+
+<!-- `python scrapping/download.py meta/spatialaudiogen_db.lst`
 
 This script uses `youtube-dl` to download pre-selected audio and video formats for which the encoding scheme has been verified. 
 Videos are downloaded into the `data/orig` directory.
@@ -43,7 +45,7 @@ Unfortunately, a small number of videos have been removed by the creators (36 ou
 This script pre-processes previously downloaded videos.
 Video frames are resized to `(224x448)` and remapped into equirectangular projection at `10` fps. Audio channels are remapped into ACN format (`WYZX`) and resampled at `48000` kHz.
 Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`). 
-Training, evaluation and deployment code use the data in `data/frames`.
+Training, evaluation and deployment code use the data in `data/frames`. -->
 
 ## Pre-trained models
 Models pre-trained in each dataset can be downloaded from OneDrive:
@@ -56,15 +58,17 @@ Models pre-trained in each dataset can be downloaded from OneDrive:
 After downloading the `.tar.gz` files, extract them into `models/` directory.
 
 ##  Getting started
-Several demo videos are provided under `data/demo`. 
+To test the models without downloading the entire dataset, we provide sample pre-processed videos ([link](https://ucsdcloud-my.sharepoint.com/:f:/g/personal/pmaravil_ucsd_edu/EhqgH0jRz0tFifQuXjBurToB_m-2o2c7gnw7kI-DIbbhAQ)).
 
-To run a pre-trained model over one of these videos, use one of the following options.
+Download and extract the demo data into `data/demo`. Then, run a pre-trained model using one of the following options.
 
-**[Heatmap Visualization]** 
-`python deploy.py {MODEL_DIR} data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --overlay_map`.
+**[Heatmap Visualization]** A spherical map representing the directions with 
+
+`python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}/video-hr.mp4 -output_fn data/demo/{VIDEO_DIR}/prediction-colormap.mp4 --save_video --overlay_map`.
 
 **[Ambisonics]** 
-`python deploy.py {MODEL_DIR} data/demo/{DEMO_VIDEO}/ data/demo/{DEMO_VIDEO}.mp4 -out_base_fn data/demo/{DEMO_VIDEO}-output.mp4 --save_video --VR`.
+
+`python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}.mp4 -output_fn data/demo/{VIDEO_DIR}-output.mp4 --save_video --VR`.
 
 When the ``--VR`` option is used, the output must be watched with headphones using an 360 video player. See below for more information (section `Visualizing predictions`).
 
@@ -73,7 +77,7 @@ When the ``--VR`` option is used, the output must be watched with headphones usi
 ### Training and evaluation
 Type `python train.py -h` and `python eval.py -h` for more info.
 
-**Example** Model with an audio and rgb encoder (no flow) on `REC-Street` dataset:
+**Example usage**: Model with an audio and rgb encoder (no flow) on `REC-Street` dataset:
 
 `python train.py data/frames models/mymodel --subset_fn meta/subsets/REC-Street.train.1.lst --encoders audio video --batch_size 32 --n_iters 150000 --gpu 0`
 
