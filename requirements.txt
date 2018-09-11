@@ -1,0 +1,11 @@
+imageio==2.3.0
+librosa==0.6.0
+numpy==1.14.3
+Pillow==5.1.0
+pyemd==0.5.1
+resampy==0.2.0
+scikit-image==0.13.1
+scikits.audiolab==0.11.0
+scipy==1.1.0
+tensorflow-gpu==1.4.0rc1
+youtube-dl==2017.11.15

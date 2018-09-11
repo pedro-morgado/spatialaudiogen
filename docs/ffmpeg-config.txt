@@ -1,0 +1,3 @@
+ffmpeg version N-90583-g5710fda Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 5.4.0 (Ubuntu 5.4.0-6ubuntu1~16.04.9) 20160609
+  configuration: --prefix=/home/morgado/ffmpeg_build --pkg-config-flags=--static --extra-cflags=-I/home/morgado/ffmpeg_build/include --extra-ldflags=-L/home/morgado/ffmpeg_build/lib --extra-libs='-lpthread -lm' --bindir=/home/morgado/bin --enable-gpl --enable-libass --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-nonfree
