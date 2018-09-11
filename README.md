@@ -62,17 +62,15 @@ To test the models without downloading the entire dataset, we provide sample pre
 
 Download and extract the demo data into `data/demo`. Then, run a pre-trained model using one of the following options.
 
-**[Heatmap Visualization]** A spherical map representing the directions with 
+**[Heatmap Visualization]** Colormap overlay with darker red indicating directions with higher audio energy.
 
 `python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}/video-hr.mp4 -output_fn data/demo/{VIDEO_DIR}/prediction-colormap.mp4 --save_video --overlay_map`.
 
-**[Ambisonics]** 
+**[Ambisonics]** Saved with actual spatial sound. The output must be watched with headphones using an 360 video player. See below for more information (section `Visualizing predictions`).
 
 `python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}.mp4 -output_fn data/demo/{VIDEO_DIR}-output.mp4 --save_video --VR`.
 
-When the ``--VR`` option is used, the output must be watched with headphones using an 360 video player. See below for more information (section `Visualizing predictions`).
-
-**NOTE:** The `deploy.py` script requires a version of the video preprocessed in high-resolution. For the demo examples, these files are already provided. For other videos, this can be accopmlished by setting the `prep_hr_video` to `True` in `scrapping/preprocess.py` and running it again.
+**NOTICE:** The `deploy.py` script requires a version of the video preprocessed in high-resolution. For the demo examples, these files are already provided. For other videos, this can be accopmlished by setting the `prep_hr_video` to `True` in `scrapping/preprocess.py` and running it again.
 
 ### Training and evaluation
 Type `python train.py -h` and `python eval.py -h` for more info.
