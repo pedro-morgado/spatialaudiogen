@@ -1,16 +1,8 @@
 <div>
-  <div style="width:24%;">
-    <img src="docs/img/dataset/REC-Street.jpg" style="width:100%">
-  </div>
-  <div style="width:24%;">
-    <img src="docs/img/dataset/YT-Clean.jpg" style="width:100%">
-  </div>
-  <div style="width:24%;">
-    <img src="docs/img/dataset/YT-Music.jpg" style="width:100%">
-  </div>
-  <div style="width:24%;">
-    <img src="docs/img/dataset/YT-All.jpg" style="width:100%">
-  </div>
+	<img src="docs/img/dataset/REC-Street.jpg" style="width:24%">
+	<img src="docs/img/dataset/YT-Clean.jpg" style="width:24%">
+	<img src="docs/img/dataset/YT-Music.jpg" style="width:24%">
+	<img src="docs/img/dataset/YT-All.jpg" style="width:24%">
 </div>
 
 # Spatial Audio Generation [[Project Page]](https://pedro-morgado.github.io/spatialaudiogen/)
