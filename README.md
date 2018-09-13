@@ -1,5 +1,5 @@
 
-<img src="docs/img/header.jpg" style="width:24%">
+<img src="docs/img/header_1x3.png" style="width:100%">
 
 # Spatial Audio Generation [[Project Page]](https://pedro-morgado.github.io/spatialaudiogen/)
 
