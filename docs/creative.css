@@ -172,8 +172,8 @@ img::-moz-selection {
 }
 
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   background-color: #003366 !important;
   /*background-image: url("../img/header.jpg");*/
   background-position: center center;
@@ -200,23 +200,35 @@ header.masthead p {
   header.masthead p {
     font-size: 1.15rem;
   }
+  header.masthead {
+    /*height: 100vh;*/
+    min-height: 100vh;
+    /*padding-top: 0;*/
+    /*padding-bottom: 0;*/
+  }
 }
 
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
-    min-height: 870px;
-    padding-top: 0;
-    padding-bottom: 0;
+    /*height: 100vh;*/
+    min-height: 100vh;
+    /*padding-top: 0;*/
+    /*padding-bottom: 0;*/
   }
   header.masthead h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (min-width: 1200px) {
+  header.masthead {
+    /*height: 100vh;*/
+    min-height: 100vh;
+    /*padding-top: 0;*/
+    /*padding-bottom: 0;*/
+  }
   header.masthead h1 {
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
 }
 
