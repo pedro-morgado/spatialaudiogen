@@ -24,6 +24,7 @@ In Neural Information Processing Systems, 2018.
 * tensorflow 1.4
 * youtube-dl
 * ffmpeg (see my ffmpeg [configuration](https://pedro-morgado.github.io/spatialaudiogen/ffmpeg-config.txt))
+* [FlowNet2](https://github.com/lmb-freiburg/flownet2.git) (caffe)
 
 ## Dataset
 Four datasets are described in the paper: `REC-Street`, `YT-Clean`, `YT-Music` and `YT-All`.
