@@ -31,24 +31,36 @@ Since we do not own the copyright of 360 videos scraped from youtube, all datase
 
 The composition of each dataset can be seen in `meta/subsets/{DB}.lst`. Three train/test splits are also provided for each dataset (`meta/subsets/{DB}.{TRAIN|TEST}.{SPLIT}.lst`).
 
-#### Download the data 
+#### Download the dataset
 
-Scripts for downloading and pre-processing the data will be released soon.
+`python scrapping/download.py meta/spatialaudiogen_db.lst`
 
-<!-- `python scrapping/download.py meta/spatialaudiogen_db.lst`
+`python scrapping/download.py -h` for help.
 
 This script uses `youtube-dl` to download pre-selected audio and video formats for which the encoding scheme has been verified. 
 Videos are downloaded into the `data/orig` directory.
-Unfortunately, a small number of videos have been removed by the creators (36 out of 1189 at the time of writing).
+Unfortunately, a small number of videos have been removed by the creators and will be skipped (36 out of 1189 at the time of writing).
+
+**(Low-resolution)** Training uses low-resolution videos. If you only want to download the low resolution versions, please use the flag `--low_res`. However, you still need the full resolution videos for deployment of trained models, in order to create a good looking 360 video with spatial audio.
 
 #### Preprocess videos
 
 `python scrapping/preprocess.py meta/spatialaudiogen_db.lst`
 
+`python scrapping/preprocess.py -h` for help.
+
 This script pre-processes previously downloaded videos.
 Video frames are resized to `(224x448)` and remapped into equirectangular projection at `10` fps. Audio channels are remapped into ACN format (`WYZX`) and resampled at `48000` kHz.
 Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`). 
-Training, evaluation and deployment code use the data in `data/frames`. -->
+Training, evaluation and deployment code use the data in `data/frames`.
+
+**IMPORTANT: (Low-resolution downloads)** If you opt to download only the low-resolution videos, please use the flag `--low_res` again.
+
+**Preparing high-resolution videos for deployment** Assuming you downloaded high-resolution videos from youtube, you can preprocess them in high-resolution `(1920x1080)` by using the flag `--prep_hr_video`.
+
+**Flow:** To extract flow maps, you'll need to first install [FlowNet2](https://github.com/lmb-freiburg/flownet2.git). Refer to FlowNet2 documentation for installation instruciton. Then, simply provide the path to the FlowNet2 basefolder through `--flownet2_dir`. If no path is provided, flow computation is skipped.
+
+**Note:** Downloading and preprocessing the entire dataset will take a long time, and requires `>500Gb` to store the full resolution videos (originals and preprocessed). Plan accordingly!
 
 ## Pre-trained models
 Models pre-trained in each dataset can be downloaded from OneDrive:
