@@ -54,16 +54,16 @@ Video frames are resized to `(224x448)` and remapped into equirectangular projec
 Preprocessed files are stored in `data/preproc` (as `.m4a` and `.mp4`) and `data/frames` (as `.jpg` and `.wav`). 
 Training, evaluation and deployment code use the data in `data/frames`.
 
-**IMPORTANT: (Low-resolution downloads)** If you opt to download only the low-resolution videos, please use the flag `--low_res` again.
+**IMPORTANT: (Low-resolution downloads)** If you opt to download only low-resolution videos in the previous step, please use the flag `--low_res` again.
 
-**Preparing high-resolution videos for deployment** Assuming you downloaded high-resolution videos from youtube, you can preprocess them in high-resolution `(1920x1080)` by using the flag `--prep_hr_video`.
+**Preparing high-resolution videos for deployment** Assuming you downloaded high-resolution videos (i.e. without `--low_res` flag), you can preprocess them in high-resolution `(1920x1080)` using the flag `--prep_hr_video`. This is not required for training or evaluation, but it is recommended for deployment.
 
-**Flow:** To extract flow maps, you'll need to first install [FlowNet2](https://github.com/lmb-freiburg/flownet2.git). Refer to FlowNet2 documentation for installation instruciton. Then, simply provide the path to the FlowNet2 basefolder through `--flownet2_dir`. If no path is provided, flow computation is skipped.
+**Flow:** To extract flow maps, you'll need to first install [FlowNet2](https://github.com/lmb-freiburg/flownet2.git). Refer to FlowNet2 documentation for instructions. Then, simply provide the path to the FlowNet2 basefolder through `--flownet2_dir`. If no path is provided, flow computation is skipped.
 
 **Note:** Downloading and preprocessing the entire dataset will take a long time, and requires `>500Gb` to store the full resolution videos (originals and preprocessed). Plan accordingly!
 
 ## Pre-trained models
-Models pre-trained in each dataset can be downloaded from OneDrive:
+Models pre-trained in each dataset can be downloaded from my OneDrive:
 
 | [REC-Street](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EY-SUbhyYdNFuwHXQkX3coYBrgEtVOSF4KhYN_21LfvpjA) | 
 [YT-Clean](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/ES5xETC9aXFApPhynevZL1kBG8ejcMrp_DR4kHHmYNSHKQ) | 
@@ -85,12 +85,10 @@ Download and extract the demo data into `data/demo`. Then, run a pre-trained mod
 
 `python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}.mp4 -output_fn data/demo/{VIDEO_DIR}-output.mp4 --save_video --VR`.
 
-**NOTICE:** The `deploy.py` script requires a version of the video preprocessed in high-resolution. For the demo examples, these files are already provided. For other videos, this can be accopmlished by setting the `prep_hr_video` to `True` in `scrapping/preprocess.py` and running it again.
-
 ### Training and evaluation
-Type `python train.py -h` and `python eval.py -h` for more info.
+`python train.py -h` and `python eval.py -h` for more info.
 
-**Example usage**: Model with an audio and rgb encoder (no flow) on `REC-Street` dataset:
+**Example usage**: Training and testing a model with an audio and rgb encoder (no flow) on `REC-Street` dataset:
 
 `python train.py data/frames models/mymodel --subset_fn meta/subsets/REC-Street.train.1.lst --encoders audio video --batch_size 32 --n_iters 150000 --gpu 0`
 
