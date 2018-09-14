@@ -262,7 +262,6 @@ if __name__ == '__main__':
             # Precompute flow (requires instalation of flownet2)
             if args.flownet2_dir:
                 compute_flow(os.path.join(frames, 'video'), os.path.join(frames, 'flow'), args.flownet2_dir, gpu)
-            break
 
 
     to_process = open(sys.argv[1]).read().splitlines()
