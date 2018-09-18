@@ -34,9 +34,11 @@ The composition of each dataset can be seen in `meta/subsets/{DB}.lst`. Three tr
 
 #### Download the dataset
 
-`python scrapping/download.py meta/spatialaudiogen_db.lst`
+```bash
+>> python scrapping/download.py meta/spatialaudiogen_db.lst
+```
 
-`python scrapping/download.py -h` for help.
+Run `python scrapping/download.py -h` for help.
 
 This script uses `youtube-dl` to download pre-selected audio and video formats for which the encoding scheme has been verified. 
 Videos are downloaded into the `data/orig` directory.
@@ -46,9 +48,11 @@ Unfortunately, a small number of videos have been removed by the creators and wi
 
 #### Preprocess videos
 
-`python scrapping/preprocess.py meta/spatialaudiogen_db.lst`
+```bash
+>> python scrapping/preprocess.py meta/spatialaudiogen_db.lst
+```
 
-`python scrapping/preprocess.py -h` for help.
+Run ```python scrapping/preprocess.py -h``` for help.
 
 This script pre-processes previously downloaded videos.
 Video frames are resized to `(224x448)` and remapped into equirectangular projection at `10` fps. Audio channels are remapped into ACN format (`WYZX`) and resampled at `48000` kHz.
@@ -80,20 +84,25 @@ Download and extract the demo data into `data/demo`. Then, run a pre-trained mod
 
 **[Heatmap Visualization]** Colormap overlay with darker red indicating directions with higher audio energy.
 
-`python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}/video-hr.mp4 -output_fn data/demo/{VIDEO_DIR}/prediction-colormap.mp4 --save_video --overlay_map`.
+```bash
+>> python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}/video-hr.mp4 -output_fn data/demo/{VIDEO_DIR}/prediction-colormap.mp4 --save_video --overlay_map
+```
 
 **[Ambisonics]** Saved with actual spatial sound. The output must be watched with headphones using an 360 video player. See below for more information (section `Visualizing predictions`).
 
-`python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}.mp4 -output_fn data/demo/{VIDEO_DIR}-output.mp4 --save_video --VR`.
+```bash
+>> python deploy.py {MODEL_DIR} data/demo/{VIDEO_DIR}/ data/demo/{VIDEO_DIR}.mp4 -output_fn data/demo/{VIDEO_DIR}-output.mp4 --save_video --VR
+```
 
 ### Training and evaluation
 `python train.py -h` and `python eval.py -h` for more info.
 
 **Example usage**: Training and testing a model with an audio and rgb encoder (no flow) on `REC-Street` dataset:
 
-`python train.py data/frames models/mymodel --subset_fn meta/subsets/REC-Street.train.1.lst --encoders audio video --batch_size 32 --n_iters 150000 --gpu 0`
-
-`python eval.py models/mymodel --subset_fn meta/subsets/REC-Street.test.1.lst --batch_size 32 --gpu 0`
+```bash
+>> python train.py data/frames models/mymodel --subset_fn meta/subsets/REC-Street.train.1.lst --encoders audio video --batch_size 32 --n_iters 150000 --gpu 0
+>> python eval.py models/mymodel --subset_fn meta/subsets/REC-Street.test.1.lst --batch_size 32 --gpu 0
+```
 
 
 ## Visualizing predictions
