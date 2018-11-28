@@ -58,7 +58,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Spatial Audio Generation</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Spatial Audio Gen</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -91,29 +91,29 @@
     <header class="masthead text-center text-white d-flex">
       <div class="container align-items-center my-auto">
         <div class="row">
-          <div class="col-10 mx-auto mt-5">
+          <div class="col-lg-10 col-md-10 col-sm-12 mx-auto mt-5">
             <h1 class="text-uppercase">
               <strong>Self-Supervised Generation of Spatial Audio for 360° Video</strong>
             </h1>
           </div>
 
-          <div class="col-3">
-            <h4 class="text-faded my-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h4 class="text-faded my-lg-3 my-md-3 my-sm-3">
               <a href="http://www.svcl.ucsd.edu/~morgado" class="text-faded" target="_blank">Pedro Morgado</a> 
             </h4>
           </div>
-          <div class="col-3">
-            <h4 class="text-faded my-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h4 class="text-faded my-lg-3 my-md-2 my-sm-0">
               <a href="http://www.svcl.ucsd.edu/~nuno" class="text-faded" target="_blank">Nuno Vasconcelos</a>
             </h4>
           </div>
-          <div class="col-3">
-            <h4 class="text-faded my-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h4 class="text-faded my-lg-3 my-md-2 my-sm-0">
               <a href="http://langlo.is" class="text-faded" target="_blank">Timothy Langlois</a> 
             </h4>
           </div>
-          <div class="col-3">
-            <h4 class="text-faded my-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h4 class="text-faded my-lg-3 my-md-2 my-sm-0">
               <a href="http://www.oliverwang.info" class="text-faded" target="_blank">Oliver Wang</a>
             </h4>
           </div>
@@ -144,15 +144,14 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-10 mx-auto">
+          <!-- <div class="col-1"></div> -->
+          <div class="col-lg-10 col-md-11 col-sm-11 mx-auto">
             <p class="text-muted text-justify mb-0">
               We introduce an approach to convert mono audio recorded by a 360° video camera into spatial audio, a representation of the distribution of sound over the full viewing sphere. Spatial audio is an important component of immersive 360° video viewing, but spatial audio microphones are still rare in current 360° video production. Our system consists of end-to-end trainable neural networks that separate individual sound sources and localize them on the viewing sphere, conditioned on multi-modal analysis of audio and 360° video frames. We introduce several datasets, including one filmed ourselves, and one collected in-the-wild from YouTube, consisting of 360° videos uploaded with spatial audio. During training, ground-truth spatial audio serves as self-supervision and a mixed down mono track forms the input to our network. Using our approach, we show that it is possible to infer the spatial location of sound sources based only on 360° video and a mono audio track.
             </p>
           </div>
-          <div class="col-1"></div>
-
-          <div class="col-lg-1 col-md-0 col-sm-0"></div>
+        </div>
+        <div class="row">
           <div class="col-lg-10 col-md-10 col-sm-12 mx-auto text-center">
             <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/spatialaudiogen.pdf" target="_blank">
               <img src="./img/paper.jpg" alt="paper" class="img-thumbnail mb-3 mt-5">
@@ -160,28 +159,27 @@
             <!-- <h3 class="mb-3">Paper</h3> -->
             <!-- <p class="text-muted mb-0">To appear in the 32nd Conference on Neural Information Processing Systems (NIPS'18).</p> -->
           </div>
+        </div>
+        <div class="row">
           <div class="col-lg-1 col-md-0 col-sm-0"></div>
-
-          <div class="col-lg-1 col-md-0 col-sm-0"></div>
-          <div class="col-lg-2 col-md-4 col-sm-12 text-center">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/supplementary_material.zip" target="_blank"> <i class="far fa-4x fa-file-archive text-primary mb-3 "></i> </a>
               <h3 class="mb-3">Supplement</h3>
-              <!-- <p class="text-muted mb-0">Get the supplementary material.</p> -->
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-4 col-sm-12 text-center">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center hidden-lg hidden-md hidden-sm hidden-xs">
             <div class="service-box mt-5 mx-auto">
               <a href="https://arxiv.org/abs/1809.02587" target="_blank">
-                <i class="ai ai-4x ai ai-arxiv text-primary mb-3 "></i>
+                <i class="ai ai-4x ai ai-arxiv text-primary mb-3"></i>
               </a>
               <h3 class="mb-3">Arxiv</h3>
               <!-- <p class="text-muted mb-0">Read the preprint.</p> -->
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-4 col-sm-12 text-center">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <a href="https://github.com/pedro-morgado/spatialaudiogen" target="_blank">
                 <i class="fab fa-4x fa-github text-primary mb-3 "></i>
@@ -192,7 +190,7 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 col-sm-12 text-center">
+          <div class="col-lg-2 col-md-6 col-sm-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/poster.pdf" target="_blank">
                 <i class="fab fa-4x fa-slideshare text-primary mb-3 "></i>
@@ -202,7 +200,7 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 col-sm-12 text-center">
+          <div class="col-lg-2 col-md-6 col-sm-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <a href="http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/spatialaudiogen.bib" target="_blank"> <i class="fa fa-4x fa-bars text-primary mb-3 "></i> </a>
               <h3 class="mb-3">Bibtex</h3>
@@ -210,7 +208,7 @@
             </div>
           </div>
 
-          <div class="col-1"></div>
+          <!-- <div class="col-1"></div> -->
 
         </div>
       </div>
@@ -489,112 +487,138 @@
           </div>
           <div class="col-10 mx-auto text-left px-0">
             <p class="text-muted mb-3">
-              <p>Click the videos for watching our model predictions. </p>
+              <p>Click the videos for watching our model predictions.</p>
               <p>NOTE: First video is the input to our model. The network output can be seen either with a colormap overlay that localizes the most salient sounds (second video) or using headphones in the 360 video player (third column).</p>
             </p>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-8 mx-auto text-center">
+        <div class="col-lg-8 col-sm-12 mx-auto text-center">
           <div class="container-fluid">
             <div class="row popup-gallery">
-              <div class="col-12 px-1 text-left">
-                <h4>Example #1</h4>
+              <div class="col-12 px-3 text-left"><h4>Example #1</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/866j-XIZmjg?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=866j-XIZmjg" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/866j-XIZmjg?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/TwE_Qr_ZSoo?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=TwE_Qr_ZSoo" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/TwE_Qr_ZSoo?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/LH_o8GHVS-E?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=LH_o8GHVS-E" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
+              </div>
+            </div>
+
+            <div class="row popup-gallery">
+              <div class="col-12 mx-0 text-left"><h4>Example #2</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/kdrAd1reVd0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=kdrAd1reVd0" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/LH_o8GHVS-E?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/36hKAcKcajQ?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=36hKAcKcajQ" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
+              </div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/3HAmjUOScgY?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=3HAmjUOScgY" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
               </div>
 
-              <div class="col-12 mx-0 text-left">
-                <h4>Example #2</h4>
+              <div class="col-12 mx-0 text-left"><h4>Example #3</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/MFVmxoXgeNQ?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=MFVmxoXgeNQ" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/kdrAd1reVd0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/AkZb9TXpCsE?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=AkZb9TXpCsE" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/36hKAcKcajQ?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/3HAmjUOScgY?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/Bh36H9Rd-_I?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=Bh36H9Rd-_I" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
               </div>
 
-              <div class="col-12 mx-0 text-left">
-                <h4>Example #3</h4>
+              <div class="col-12 mx-0 text-left"><h4>Example #4</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/b2qcHzRWb-k?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=b2qcHzRWb-k" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/MFVmxoXgeNQ?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/fQADmKnPqm0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=fQADmKnPqm0" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/AkZb9TXpCsE?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/Bh36H9Rd-_I?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
-              </div>
-
-              <div class="col-12 mx-0 text-left">
-                <h4>Example #4</h4>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/b2qcHzRWb-k?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/fQADmKnPqm0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/5oyqT8xfjg0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/5oyqT8xfjg0?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=5oyqT8xfjg0" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
               </div>
 
 
-              <div class="col-12 mx-0 text-left">
-                <h4>Example #5</h4>
+              <div class="col-12 mx-0 text-left"><h4>Example #5</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/22kR2g5KWYA?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=22kR2g5KWYA" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/22kR2g5KWYA?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/ziTijjcqQbU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=ziTijjcqQbU" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/ziTijjcqQbU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/F_sDfvzr_ZU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/F_sDfvzr_ZU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=F_sDfvzr_ZU" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
               </div>
 
 
-              <div class="col-12 mx-0 text-left">
-                <h4>Example #6</h4>
+              <div class="col-12 mx-0 text-left"><h4>Example #6</h4></div>
+              <div class="col-4 my-3 mx-0">
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/YLxrongniuw?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=YLxrongniuw" target="_blank">
+                    <center><h5>Source</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/YLxrongniuw?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Source</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/o1hT1pV1UZw?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html"width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=o1hT1pV1UZw" target="_blank">
+                    <center><h5>Prediction (Colormap)</h5></center>
+                  </a>
               </div>
               <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/o1hT1pV1UZw?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html"width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Colormap)</h5></center>
-              </div>
-              <div class="col-4 my-3 mx-0">
-                  <iframe src="https://www.youtube.com/embed/oaxBb2yikSU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
-                  <center><h5>Prediction (Ambisonics)</h5></center>
+                  <iframe class="d-none d-md-block" src="https://www.youtube.com/embed/oaxBb2yikSU?enablejsapi=1&origin=https://pedro-morgado.github.io/spatialaudiogen/index.html" width="100%" type="text/html" allowfullscreen class="exampleVideo"></iframe>
+                  <a href="https://www.youtube.com/watch?v=oaxBb2yikSU" target="_blank">
+                    <center><h5>Prediction (Ambisonics)</h5></center>
+                  </a>
               </div>
             </div>
           </div>
