@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 data
-models
+./models
 sftp-config.json
 
 
