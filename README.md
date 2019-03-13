@@ -70,10 +70,10 @@ Training, evaluation and deployment code use the data in `data/frames`.
 ## Pre-trained models
 Models pre-trained in each dataset can be downloaded from my OneDrive:
 
-| [REC-Street](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EY-SUbhyYdNFuwHXQkX3coYBrgEtVOSF4KhYN_21LfvpjA) | 
-[YT-Clean](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/ES5xETC9aXFApPhynevZL1kBG8ejcMrp_DR4kHHmYNSHKQ) | 
-[YT-Music](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/Earcl8uge_VAnr6aac6PhgABe5vs8rMoZNmpniBkH2a5HQ) | 
-[YT-All](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/pmaravil_ucsd_edu/EdKpT8fNP7FBu__0mp-HkVwB12_Nlnducizm1xbZPJD1eQ) |
+| [REC-Street](http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/REC-Street.tar.gz) | 
+[YT-Clean](http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-Clean.tar.gz) | 
+[YT-Music](http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-Music.tar.gz) | 
+[YT-All](http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/models/YT-All.tar.gz) |
 
 After downloading the `.tar.gz` files, extract them into `models/` directory.
 
