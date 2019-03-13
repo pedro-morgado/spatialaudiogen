@@ -78,7 +78,7 @@ Models pre-trained in each dataset can be downloaded from my OneDrive:
 After downloading the `.tar.gz` files, extract them into `models/` directory.
 
 ##  Getting started
-To test the models without downloading the entire dataset, we provide sample pre-processed videos ([link](https://ucsdcloud-my.sharepoint.com/:f:/g/personal/pmaravil_ucsd_edu/EhqgH0jRz0tFifQuXjBurToB_m-2o2c7gnw7kI-DIbbhAQ)).
+To test the models without downloading the entire dataset, we provide sample pre-processed videos ([link](http://www.svcl.ucsd.edu/~morgado/spatialaudiogen/data/demo.tar.gz)).
 
 Download and extract the demo data into `data/demo`. Then, run a pre-trained model using one of the following options.
 
