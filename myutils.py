@@ -304,7 +304,7 @@ def gen_360video(audio_fn, video_fn, output_fn, inject_meta=False, overlay_map=F
     if inject_meta:
         print('Injecting metadata')
         file_dir = os.path.dirname(os.path.realpath(__file__))
-        spt_media_dir = os.path.realpath(os.path.join(file_dir, '..', '3rd-party', 'spatial-media'))
+        spt_media_dir = os.path.realpath(os.path.join(file_dir, '3rd-party', 'spatial-media'))
         os.chdir(spt_media_dir)
         os.system('python spatialmedia -i --stereo=none {} {} {} '.format('' if no_spatial_audio else '--spatial-audio', tmp_file, output_fn))
         os.chdir(cwd)
