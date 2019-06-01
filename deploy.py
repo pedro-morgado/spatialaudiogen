@@ -194,7 +194,7 @@ def main(args):
 
         myutils.gen_360video(tmp_ambix_fn, tmp_video_fn, args.output_fn, overlay_map=args.overlay_map, inject_meta=args.VR, binauralize=not args.VR)
 
-    os.remove(tmp_video_fn)
+        os.remove(tmp_video_fn)
     os.remove(tmp_ambix_fn)
 
 if __name__ == '__main__':
