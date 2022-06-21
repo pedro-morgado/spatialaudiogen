@@ -1,6 +1,6 @@
 imageio==2.3.0
 librosa==0.6.0
-numpy==1.14.3
+numpy==1.22.0
 Pillow==5.1.0
 pyemd==0.5.1
 resampy==0.2.0
